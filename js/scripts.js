@@ -14,13 +14,17 @@ let pokemonList = [
     type: ['flying', 'poision']
     }
 ]
-    pokemonList.forEach (function (pokemon) {
-        document.write(pokemon.name + " " + "(height: " + pokemon.height + ")")
-    })
+    
+return {
+    getAll: getAll,
+     add: add
+}
 
 })()
 
-
+pokemonList.forEach (function (pokemon) {
+    document.write(pokemon.name + " " + "(height: " + pokemon.height + ")")
+})
 
         
 //Index array 0 is our starting point. Value i will keep iterating by an increment of 1 until its run through all objects inside array
