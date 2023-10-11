@@ -14,7 +14,13 @@ let pokemonList = [
     type: ['flying', 'poision']
     }
 ]
-    
+
+    function getAll() {
+        return pokemonList;
+    }
+
+
+
 return {
     getAll: getAll,
      add: add
