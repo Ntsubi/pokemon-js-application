@@ -1,3 +1,5 @@
+let pokemonRepository = (function () { 
+
 let pokemonList = [
     {name: 'Squirtle', 
     height: 5, 
@@ -16,6 +18,7 @@ let pokemonList = [
         document.write(pokemon.name + " " + "(height: " + pokemon.height + ")")
     })
 
+})()
 
 
 
