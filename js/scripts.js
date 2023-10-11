@@ -19,7 +19,9 @@ let pokemonList = [
         return pokemonList;
     }
 
-
+    function add(item) {
+        pokemonList.push(item)
+    }
 
 return {
     getAll: getAll,
