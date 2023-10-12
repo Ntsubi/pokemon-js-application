@@ -40,6 +40,8 @@ pokemonRepository.getAll().forEach(function (pokemon) {
     let button = document.createElement('button');
     button.innerText = 'pokemon.name';
     button.classList.add('button-class');
+    listItem.appendChild(button);
+    
 
 })
 pokemonRepository.add({ name: 'Squirtle', height: 5, type: ['water', 'grass'] })
