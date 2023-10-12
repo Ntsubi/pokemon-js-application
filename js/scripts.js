@@ -37,6 +37,8 @@ console.log(pokemonRepository.getAll())
 pokemonRepository.getAll().forEach(function (pokemon) {
     let pokemonList = document.querySelector('pokemon-list');
     let listItem = document.createElement('li');
+    let button = document.createElement('button');
+    button.innerText = 'pokemon.name';
     
 })
 pokemonRepository.add({ name: 'Squirtle', height: 5, type: ['water', 'grass'] })
