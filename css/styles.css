@@ -2,6 +2,9 @@ h1 {
   margin-left: 40px;
 }
 
+.pokemon-list {
+  list-style-type: none;
+}
 
 .button-class {
     background-color: #4caf50; /* Green */
