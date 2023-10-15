@@ -23,6 +23,7 @@ let pokemonRepository = (function () {
             alert(`You have selected ${pokemon.name}!`);
         })
     }
+
     function loadList() {
         return fetch(apiUrl).then(function (response) {
             return response.json();
@@ -50,6 +51,12 @@ let pokemonRepository = (function () {
           item.types = details.types;
         }).catch(function (e) {
           console.error(e);
+        });
+    }
+
+    function showDetails(pokemon) {
+        loadDetails(pokemon).then(function () {
+          console.log(pokemon);
         });
     }
 
