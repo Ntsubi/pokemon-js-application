@@ -19,8 +19,8 @@ let pokemonRepository = (function () {
         button.classList.add('button-class');
         listItem.appendChild(button);
         pokemonList.appendChild(listItem);
-        button.addEventListener('click', function () {
-            alert(`You have selected ${pokemon.name}!`);
+        button.addEventListener('click', function(event) {
+            showDetails(pokemon);
         })
     }
 
