@@ -48,9 +48,10 @@ let pokemonRepository = (function () {
 
 })()
 
-console.log(pokemonRepository.getAll())
+pokemonRepository.loadList().then(function() {
 pokemonRepository.getAll().forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);
+})
 
 })
 pokemonRepository.add({ name: 'Squirtle', height: 5, type: ['water', 'grass'] })
