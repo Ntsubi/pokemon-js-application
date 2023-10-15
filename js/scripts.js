@@ -52,12 +52,13 @@ let pokemonRepository = (function () {
           console.error(e);
         });
     }
-    
+
     return {
         getAll: getAll,
         add: add,
         addListItem: addListItem,
-        loadList: loadList
+        loadList: loadList,
+        loadDetails: loadDetails
     }
 
 })()
