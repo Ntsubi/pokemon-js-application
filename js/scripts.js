@@ -11,6 +11,7 @@ let pokemonRepository = (function () {
         pokemonList.push(item);
     }
 
+    //DOM manipulation
     function addListItem(pokemon) {
         let pokemonList = document.querySelector('.pokemon-list');
         let listItem = document.createElement('li');
@@ -19,7 +20,7 @@ let pokemonRepository = (function () {
         button.classList.add('button-class');
         listItem.appendChild(button);
         pokemonList.appendChild(listItem);
-        button.addEventListener('click', function(event) {
+        button.addEventListener('click', function (event) {
             showDetails(pokemon);
         })
     }
@@ -43,20 +44,20 @@ let pokemonRepository = (function () {
     function loadDetails(item) {
         let url = item.detailsUrl;
         return fetch(url).then(function (response) {
-          return response.json();
+            return response.json();
         }).then(function (details) {
-          // Now we add the details to the item
-          item.imageUrl = details.sprites.front_default;
-          item.height = details.height;
-          item.types = details.types;
+            // Pokemon properties added using the code below
+            item.imageUrl = details.sprites.front_default;
+            item.height = details.height;
+            item.types = details.types;
         }).catch(function (e) {
-          console.log(e);
+            console.log(e);
         });
     }
 
     function showDetails(pokemon) {
         loadDetails(pokemon).then(function () {
-          console.log(pokemon);
+            console.log(pokemon);
         });
     }
 
@@ -71,14 +72,12 @@ let pokemonRepository = (function () {
 
 })()
 
-pokemonRepository.loadList().then(function() {
-pokemonRepository.getAll().forEach(function (pokemon) {
-    pokemonRepository.addListItem(pokemon);
-})
+pokemonRepository.loadList().then(function () {
+    pokemonRepository.getAll().forEach(function (pokemon) {
+        pokemonRepository.addListItem(pokemon);
+    })
 
 })
-pokemonRepository.add({ name: 'Squirtle', height: 5, type: ['water', 'grass'] })
-console.log(pokemonRepository.getAll())
 
 
 
