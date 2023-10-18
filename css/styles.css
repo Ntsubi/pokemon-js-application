@@ -63,7 +63,6 @@ h1 {
   
   .modal-close {
     float: right;
-    -webkit-appearance: none;
     border: 0;
     background: none;
     color: #777;
