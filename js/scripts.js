@@ -79,6 +79,10 @@ pokemonRepository.loadList().then(function () {
 
 })
 
+let showDetails = (function () {
+
+    
+})
 
 
 
