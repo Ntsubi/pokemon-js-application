@@ -64,12 +64,11 @@ let pokemonRepository = (function () {
     }
 
     function showModal(pokemon) {
-        // clear the div first
+        // This clears the div first, avoiding creating multiple divs in DOM
         modalContainer.replaceChildren();
 
         let modal = document.createElement('div');
         modal.classList.add('modal');
-        //modal.innerText = 'text';
 
         let closeButton = document.createElement('button');
         closeButton.classList.add('button');
@@ -105,6 +104,13 @@ let pokemonRepository = (function () {
             hideModal();
         }
     })
+    
+    window.addEventListener('keydown', (e)=> {
+        if(e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+            hideModal();
+        }
+    })
+
 
     return {
         getAll: getAll,
