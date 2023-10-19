@@ -57,7 +57,6 @@ let pokemonRepository = (function () {
     }
 
     function showDetails(pokemon) {
-        console.log("Some on clicked on ", pokemon)
         loadDetails(pokemon).then(function () {
             showModal(pokemon);
         });
