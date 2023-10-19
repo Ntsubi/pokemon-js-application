@@ -2,6 +2,7 @@ let pokemonRepository = (function () {
 
     let pokemonList = []
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+    let modalContainer = document.querySelector('#modal-container');
 
     function getAll() {
         return pokemonList;
@@ -56,17 +57,19 @@ let pokemonRepository = (function () {
     }
 
     function showDetails(pokemon) {
+        console.log("Some on clicked on ", pokemon)
         loadDetails(pokemon).then(function () {
             showModal(pokemon);
         });
     }
 
     function showModal(pokemon) {
-        let modalContainer = document.querySelector('#modal-container');
+        // clear the div first
+        modalContainer.replaceChildren();
 
         let modal = document.createElement('div');
         modal.classList.add('modal');
-        modal.innerText = 'text';
+        //modal.innerText = 'text';
 
         let closeButton = document.createElement('button');
         closeButton.classList.add('button');
@@ -77,10 +80,10 @@ let pokemonRepository = (function () {
         modalTitle.innerText = pokemon.name;
 
         let modalContent = document.createElement('p');
-        modalContent.innerText = item.height;
+        modalContent.innerText = "Height: " + pokemon.height;
 
         let modalImage = document.createElement('img');
-        modalImage.src = item.imageUrl;
+        modalImage.src = pokemon.imageUrl;
 
         modal.appendChild(closeButton);
         modal.appendChild(modalTitle);
@@ -89,13 +92,19 @@ let pokemonRepository = (function () {
         modalContainer.appendChild(modal);
 
         modalContainer.classList.add('is-visible');
-
     }
 
     function hideModal() {
         let modalContainer = document.querySelector('#modal-container');
         modalContainer.classList.remove('is-visible');
     }
+
+    modalContainer.addEventListener('click', (e) => {
+        let target = e.target;
+        if(e.target === modalContainer) {
+            hideModal();
+        }
+    })
 
     return {
         getAll: getAll,
@@ -104,7 +113,8 @@ let pokemonRepository = (function () {
         loadList: loadList,
         loadDetails: loadDetails,
         showDetails: showDetails,
-        showModal: showModal
+        showModal: showModal,
+        hideModal: hideModal
     }
 
 })()
