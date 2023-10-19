@@ -123,10 +123,6 @@ pokemonRepository.loadList().then(function () {
     pokemonRepository.getAll().forEach(function (pokemon) {
         pokemonRepository.addListItem(pokemon);
     })
-
-})
-document.querySelector('#show-modal').addEventListener('click', () => {
-    showModal(pokemon);
 });
 
 
