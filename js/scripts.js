@@ -1,5 +1,5 @@
 let pokemonRepository = (function () {
-
+    //These variables are positioned here at the very top of the code so that they can be accessible to functions declared below
     let pokemonList = []
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
     let modalContainer = document.querySelector('#modal-container');
@@ -28,9 +28,9 @@ let pokemonRepository = (function () {
 
     function loadList() {
         return fetch(apiUrl).then(function (response) {
-            return response.json();
-        }).then(function (json) {
-            json.results.forEach(function (item) {
+            return response.json(); //This returns a promise
+        }).then(function (json) { //Code block between curly braces returns the actual JSON response
+            json.results.forEach(function (item) { 
                 let pokemon = {
                     name: item.name,
                     detailsUrl: item.url
@@ -91,7 +91,7 @@ let pokemonRepository = (function () {
 
         modalContainer.classList.add('is-visible');
     }
-
+    //Declaring the hide modal function, and the event listeners added to execute this function
     function hideModal() {
         let modalContainer = document.querySelector('#modal-container');
         modalContainer.classList.remove('is-visible');
@@ -110,7 +110,7 @@ let pokemonRepository = (function () {
         }
     })
 
-
+    //When called, the function pokemonRepository will return the object inside the curly braces
     return {
         getAll: getAll,
         add: add,
