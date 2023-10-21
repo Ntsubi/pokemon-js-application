@@ -1,8 +1,8 @@
 let pokemonRepository = (function () {
     //These variables are positioned here at the very top of the code so that they can be accessible to functions declared below
-    let pokemonList = []
-    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-    let modalContainer = document.querySelector('#modal-container');
+    const pokemonList = []
+    const apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+    const modalContainer = document.querySelector('#modal-container');
 
     function getAll() {
         return pokemonList;
