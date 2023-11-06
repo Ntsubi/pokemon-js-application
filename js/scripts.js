@@ -73,9 +73,19 @@ let pokemonRepository = (function () {
     modalTitle.empty();
     modalBody.empty();
 
-    let pokemonName = $('<h1>' + pokemon.name + '</h1>');
-    let imageElement = $('<img> class = "modal-img "');
-    let 
+    let nameElement = $('<h1>' + pokemon.name + '</h1>');
+    let imageElement = $('<img class = "modal-img">');
+    imageElement.attr("src", pokemon.imageUrl);
+    let heightElement = $('<p>' + "Height: " + pokemon.height + '</p>');
+    let weightElement = $('<p>' + "Weight: " + pokemon.weight + '</p>');
+    let typesElement = $('<p>' + "Types: " + pokemon.types + '</p>');
+
+    modalTitle.append(nameElement);
+    modalBody.append(imageElement);
+    modalBody.append(heightElement);
+    modalBody.append(weightElement);
+    modalBody.append(typesElement);
+    
 
         // modalContainer.replaceChildren();
 
@@ -105,23 +115,23 @@ let pokemonRepository = (function () {
         // modalContainer.classList.add('is-visible');
     }
     //Declaring the hide modal function, and the event listeners added to execute this function
-    function hideModal() {
-        let modalContainer = document.querySelector('#modal-container');
-        modalContainer.classList.remove('is-visible');
-    }
+    // function hideModal() {
+    //     let modalContainer = document.querySelector('#modal-container');
+    //     modalContainer.classList.remove('is-visible');
+    // }
 
-    modalContainer.addEventListener('click', (e) => {
-        let target = e.target;
-        if(e.target === modalContainer) {
-            hideModal();
-        }
-    })
+    // modalContainer.addEventListener('click', (e) => {
+    //     let target = e.target;
+    //     if(e.target === modalContainer) {
+    //         hideModal();
+    //     }
+    // })
     
-    window.addEventListener('keydown', (e)=> {
-        if(e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-            hideModal();
-        }
-    })
+    // window.addEventListener('keydown', (e)=> {
+    //     if(e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+    //         hideModal();
+    //     }
+    // })
 
     //When called, the function pokemonRepository will return the object inside the curly braces
     return {
