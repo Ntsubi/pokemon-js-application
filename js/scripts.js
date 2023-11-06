@@ -18,8 +18,9 @@ let pokemonRepository = (function () {
         let listItem = document.createElement('li');
         let button = document.createElement('button');
         button.innerText = pokemon.name;
-        button.classList.add('button-class');
+        //Adding Bootstrap utility class for li elements below
         button.classList.add('list-group-item');
+        
         listItem.appendChild(button);
         pokemonList.appendChild(listItem);
         button.addEventListener('click', function (event) {
@@ -64,33 +65,45 @@ let pokemonRepository = (function () {
     }
 
     function showModal(pokemon) {
-        // This clears the div first, avoiding creating multiple divs in DOM
-        modalContainer.replaceChildren();
 
-        let modal = document.createElement('div');
-        modal.classList.add('modal');
+    let modalBody = $('.modal-body');
+    let modalTitle = $('.modal-title');
+    let modalHeader = $('.modal-header');
+    
+    //Calling the empty function clears exisiting content of the modal
+    modalTitle.empty();
+    modalBody.empty();
 
-        let closeButton = document.createElement('button');
-        closeButton.classList.add('button');
-        closeButton.innerText = 'Close';
-        closeButton.addEventListener('click', hideModal);
+    let pokemonName = $('<h1>' + pokemon.name + '</h1>');
+    let imageElement = $('<img> class = "modal-img "');
+    let 
 
-        let modalTitle = document.createElement('h1');
-        modalTitle.innerText = pokemon.name;
+        // modalContainer.replaceChildren();
 
-        let modalContent = document.createElement('p');
-        modalContent.innerText = "Height: " + pokemon.height;
+        // let modal = document.createElement('div');
+        // modal.classList.add('modal');
 
-        let modalImage = document.createElement('img');
-        modalImage.src = pokemon.imageUrl;
+        // let closeButton = document.createElement('button');
+        // closeButton.classList.add('button');
+        // closeButton.innerText = 'Close';
+        // closeButton.addEventListener('click', hideModal);
 
-        modal.appendChild(closeButton);
-        modal.appendChild(modalTitle);
-        modal.appendChild(modalContent);
-        modal.appendChild(modalImage)
-        modalContainer.appendChild(modal);
+        // let modalTitle = document.createElement('h1');
+        // modalTitle.innerText = pokemon.name;
 
-        modalContainer.classList.add('is-visible');
+        // let modalContent = document.createElement('p');
+        // modalContent.innerText = "Height: " + pokemon.height;
+
+        // let modalImage = document.createElement('img');
+        // modalImage.src = pokemon.imageUrl;
+
+        // modal.appendChild(closeButton);
+        // modal.appendChild(modalTitle);
+        // modal.appendChild(modalContent);
+        // modal.appendChild(modalImage)
+        // modalContainer.appendChild(modal);
+
+        // modalContainer.classList.add('is-visible');
     }
     //Declaring the hide modal function, and the event listeners added to execute this function
     function hideModal() {
