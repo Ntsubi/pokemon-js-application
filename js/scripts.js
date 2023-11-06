@@ -51,7 +51,12 @@ let pokemonRepository = (function () {
             // Pokemon properties added using the code below
             item.imageUrl = details.sprites.front_default;
             item.height = details.height;
-            item.types = details.types;
+            item.weight = details.weight;
+            item.types = [];
+                for (let i = 0; i < details.types.length; i++) {
+                    item.types.push(details.types[i].type.name);
+                }
+
         }).catch(function (e) {
             console.log(e);
         });
