@@ -19,10 +19,12 @@ let pokemonRepository = (function () {
         button.innerText = pokemon.name;
         //Adding Bootstrap utility class for li elements below
         button.classList.add('list-group-item');
-        
+        button.classList.add('btn', 'btn-primary', 'button-class');
+        button.setAttribute('data-toggle', 'modal');
+        button.setAttribute('data-target', '#modal-container');
         listItem.appendChild(button);
         pokemonList.appendChild(listItem);
-        button.addEventListener('click', function (event) {
+        button.addEventListener('click', function () {
             showDetails(pokemon);
         })
     }
@@ -147,13 +149,13 @@ let pokemonRepository = (function () {
         loadDetails: loadDetails,
         showDetails: showDetails,
         showModal: showModal,
-        hideModal: hideModal
     }
 
 })()
 
 pokemonRepository.loadList().then(function () {
     pokemonRepository.getAll().forEach(function (pokemon) {
+        console.log(pokemon);
         pokemonRepository.addListItem(pokemon);
     })
 });
