@@ -75,7 +75,6 @@ let pokemonRepository = (function () {
 
         let modalBody = $('.modal-body');
         let modalTitle = $('.modal-title');
-        let modalHeader = $('.modal-header');
 
         //Calling the empty function clears exisiting content of the modal
         modalTitle.empty();
@@ -84,9 +83,9 @@ let pokemonRepository = (function () {
         let nameElement = $('<h2>' + pokemon.name + '</h2>');
         let imageElement = $('<img class = "modal-img" style =width:40%>');
         imageElement.attr("src", pokemon.imageUrl);
-        let heightElement = $('<p>' + "Height: " + pokemon.height + '</p>');
-        let weightElement = $('<p>' + "Weight: " + pokemon.weight + '</p>');
-        let typesElement = $('<p>' + "Types: " + pokemon.types + '</p>');
+        let heightElement = $('<p>' + 'Height: ' + pokemon.height + '</p>');
+        let weightElement = $('<p>' + 'Weight: ' + pokemon.weight + '</p>');
+        let typesElement = $('<p>' + 'Types: ' + pokemon.types + '</p>');
 
         modalTitle.append(nameElement);
         modalBody.append(imageElement);
@@ -108,9 +107,9 @@ let pokemonRepository = (function () {
 
 })();
 
-const searchInput = document.getElementById("searchinput");
+const searchInput = document.getElementById('searchinput');
 
-searchInput.addEventListener("input", (e) => {
+searchInput.addEventListener('input', (e) => {
     const keyword = e.target.value;
     const pokemons = document.querySelectorAll('.list-group-item');
     pokemons.forEach(poke => {
@@ -124,7 +123,6 @@ searchInput.addEventListener("input", (e) => {
 
 pokemonRepository.loadList().then(function () {
     pokemonRepository.getAll().forEach(function (pokemon) {
-        console.log(pokemon);
         pokemonRepository.addListItem(pokemon);
     })
 });
