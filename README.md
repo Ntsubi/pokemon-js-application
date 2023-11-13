@@ -15,4 +15,4 @@ To enable optimal functioning, it is recommended that you run this application u
 
 ## Links
 
-The external API used in this project can be found [here](https://pokeapi.co/). 
+The external API used in this project can be found [here](https://pokeapi.co/). To see the app in action, [click here](https://ntsubi.github.io/pokemon-js-application/).
